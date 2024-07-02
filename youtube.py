@@ -168,11 +168,11 @@ def channel_details(channel_id):
 
 #Table creation for channels,playlists,videos,comments
 def channels_table(channel_name_s):
-    mydb=psycopg2.connect(host=os.getenv('DB_HOST'),
-                        user=os.getenv('DB_USER'),
-                        password=os.getenv('DB_PASSWORD'),
-                        database=os.getenv('DB_NAME'),
-                        port=os.getenv('DB_PORT'))
+    mydb=psycopg2.connect(host="localhost",
+                        user="postgres",
+                        password="apnewdb",
+                        database="youtube_data",
+                        port="5432")
     cursor=mydb.cursor()
 
     try:
@@ -246,11 +246,11 @@ def channels_table(channel_name_s):
 
 
 def playlist_table(channel_name_s):
-    mydb=psycopg2.connect(host=os.getenv('DB_HOST'),
-                        user=os.getenv('DB_USER'),
-                        password=os.getenv('DB_PASSWORD'),
-                        database=os.getenv('DB_NAME'),
-                        port=os.getenv('DB_PORT'))
+    mydb=psycopg2.connect(host="localhost",
+                        user="postgres",
+                        password="apnewdb",
+                        database="youtube_data",
+                        port="5432")
     cursor=mydb.cursor()
 
     create_query='''create table if not exists playlists(Playlist_Id varchar(100) primary key,
@@ -295,11 +295,11 @@ def playlist_table(channel_name_s):
         mydb.commit()
 
 def videos_table(channel_name_s):
-    mydb=psycopg2.connect(host=os.getenv('DB_HOST'),
-                        user=os.getenv('DB_USER'),
-                        password=os.getenv('DB_PASSWORD'),
-                        database=os.getenv('DB_NAME'),
-                        port=os.getenv('DB_PORT'))
+    mydb=psycopg2.connect(host="localhost",
+                        user="postgres",
+                        password="apnewdb",
+                        database="youtube_data",
+                        port="5432")
     cursor=mydb.cursor()
 
     create_query='''create table if not exists videos(Channel_Name varchar(100),
@@ -376,11 +376,11 @@ def videos_table(channel_name_s):
 
 
 def comments_table(channel_name_s):
-    mydb=psycopg2.connect(host=os.getenv('DB_HOST'),
-                        user=os.getenv('DB_USER'),
-                        password=os.getenv('DB_PASSWORD'),
-                        database=os.getenv('DB_NAME'),
-                        port=os.getenv('DB_PORT'))
+    mydb=psycopg2.connect(host="localhost",
+                        user="postgres",
+                        password="apnewdb",
+                        database="youtube_data",
+                        port="5432")
     cursor=mydb.cursor()
 
     create_query='''create table if not exists comments(Comment_Id varchar(100) primary key,
@@ -534,11 +534,11 @@ elif show_table=="COMMENTS":
 
 #SQL Connection
 
-mydb=psycopg2.connect(host=os.getenv('DB_HOST'),
-                    user=os.getenv('DB_USER'),
-                    password=os.getenv('DB_PASSWORD'),
-                    database=os.getenv('DB_NAME'),
-                    port=os.getenv('DB_PORT'))
+mydb=psycopg2.connect(host="localhost",
+                        user="postgres",
+                        password="apnewdb",
+                        database="youtube_data",
+                        port="5432")
 cursor=mydb.cursor()
 
 question=st.selectbox("Select your question",("1. All the videos and the channel name",
