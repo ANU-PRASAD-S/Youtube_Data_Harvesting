@@ -3,11 +3,9 @@ import pymongo
 import psycopg2
 import pandas as pd
 import streamlit as st
-import os
 
 
 #API key connection
-
 def Api_connect():
     Api_Id="AIzaSyCYB9Wzxmy3ROS60e_xGnyzmi1kTVRw6C4"
 
